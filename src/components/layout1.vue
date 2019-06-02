@@ -3,13 +3,17 @@
     <div id="top_bar">
       <navme1></navme1>
     </div>
-   <div id="to2">
+   <table id="to2">
+     <tr>
     <!--<div id="nav_left" style="float:left; background:#701;width:20%"> </div>-->
-    <navleft style="float:left ; background:#cc0000"></navleft>
-    <div id="content" style="float:left;background:#aa0055 ;width:auto">
+    <td style="background : #00aa00">
+    <navleft ></navleft>
+    </td>
+    <td id="content" style="background : #aa0000">
     <router-view></router-view>
-    </div>
-   </div>
+    </td>
+    </tr>
+   </table>
   </div>
 </template>
 <style>
