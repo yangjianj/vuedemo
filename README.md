@@ -1,21 +1,11 @@
-# vuedemo2
+# vuedemo2  
+npm install  
+npm run dev  
+npm run build  
+npm run build --report    
 
-> A Vue.js project
+小技术点：  
+1.table 数据加载与 页面切换组件配合？ ---数据总数，每页展示条数，当前页，getdata()计算出当前页显示数据   
+2.新增页面？ --<el-dialog :visible.sync="editdispaly" >   
+3.
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
