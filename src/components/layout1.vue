@@ -9,7 +9,7 @@
     <td style="background : #00aa00">
     <navleft ></navleft>
     </td>
-    <td id="content" style="background : #aa0000">
+    <td id="content" style="background : #aa0000 ; max-width:1500px">
     <router-view></router-view>
     </td>
     </tr>
