@@ -3,17 +3,15 @@
     <div id="top_bar">
       <navme1></navme1>
     </div>
-   <table id="to2">
-     <tr>
+   <div id="to2" style="white-space:nowrap;text-align:left">
     <!--<div id="nav_left" style="float:left; background:#701;width:20%"> </div>-->
-    <td style="background : #00aa00">
+    <div style="background : #00aa00; display:inline-block;vertical-align:top">
     <navleft ></navleft>
-    </td>
-    <td id="content" style="background : #aa0000 ; max-width:1500px">
+    </div>
+    <div id="content" style="background : #aa0000 ; display:inline-block;vertical-align:top">
     <router-view></router-view>
-    </td>
-    </tr>
-   </table>
+    </div>
+   </div>
   </div>
 </template>
 <style>
