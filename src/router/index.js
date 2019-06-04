@@ -5,6 +5,7 @@ import table1 from '@/components/table1'
 import layout1 from '@/components/layout1'
 import error from '@/components/error'
 import table2 from '@/components/table2'
+import datacharts from '@/components/DataCharts'
 Vue.use(Router)
 
 export default new Router({
@@ -30,7 +31,8 @@ export default new Router({
       children:[
         {path: '/form1',component: HelloWorld},
         {path: '/table1',component: table1},
-        {path: '/table2',component: table2}
+        {path: '/table2',component: table2},
+        {path: '/echarts',component: datacharts}
       ]
     }
   ]

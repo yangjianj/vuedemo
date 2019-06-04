@@ -8,7 +8,7 @@
     <div style="background : #00aa00; display:inline-block;vertical-align:top">
     <navleft ></navleft>
     </div>
-    <div id="content" style="background : #aa0000 ; display:inline-block;vertical-align:top">
+    <div id="content" style="background : #eeeeee ; display:inline-block;vertical-align:top">
     <router-view></router-view>
     </div>
    </div>
