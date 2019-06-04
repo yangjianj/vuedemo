@@ -1,8 +1,8 @@
 <template>
   <div>
     <el-radio-group v-model="isCollapse" style="margin-bottom: 20px; display:block ">
-      <el-radio-button :label="false">展开</el-radio-button>
-      <el-radio-button :label="true">收起</el-radio-button>
+      <el-radio-button v-if="opennav==true" on-click="opennav=false">展开</el-radio-button>
+      <el-radio-button v-if="opennav==false" on-click="opennav=true">收起</el-radio-button>  <!--:label="true" -->
     </el-radio-group>
     <el-menu
       default-active="1-4-1"
@@ -64,6 +64,7 @@ export default {
   name: "navleft",
   data() {
     return {
+      opennav: true,
       isCollapse: true
     };
   },
