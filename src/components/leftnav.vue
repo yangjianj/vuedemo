@@ -45,7 +45,7 @@
       </el-menu-item>
       <el-menu-item index="4">
         <i class="el-icon-setting"></i>
-        <span slot="title"><router-link to="/echarts">导航四</router-link></span>
+        <span slot="title"><router-link to="/datacharts">导航四</router-link></span>
       </el-menu-item>
     </el-menu>
   </div>
@@ -75,7 +75,7 @@ export default {
       console.log(key, keyPath);
     },
     mm() {
-      this.$router.push("/table1");
+      this.$router.push("/form1");
       console.log("to 11");
     },
     showtable(){

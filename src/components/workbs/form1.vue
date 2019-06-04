@@ -57,7 +57,7 @@
 
 <script>
   export default {
-    name:"table1",
+    name:"form1",
     data() {
       return {
         ruleForm: {

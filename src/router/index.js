@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import table1 from '@/components/table1'
+import form1 from '@/components/workbs/form1'
+import table2 from '@/components/workbs/table2'
+import workb from '@/components/workbs/workbench'
 import layout1 from '@/components/layout1'
+import envir from '@/components/envirment'
+import userm from '@/components/usermanage'
 import error from '@/components/error'
-import table2 from '@/components/table2'
-import datacharts from '@/components/DataCharts'
+import datacharts from '@/components/charts/DataCharts'
 Vue.use(Router)
 
 export default new Router({
@@ -24,15 +27,20 @@ export default new Router({
       path: '/error',
       name: 'error1',
       component: error
-    },{
+    }, {
       path: '/layout1',
       name: 'daohang',
-      component:layout1,
-      children:[
-        {path: '/form1',component: HelloWorld},
-        {path: '/table1',component: table1},
-        {path: '/table2',component: table2},
-        {path: '/echarts',component: datacharts}
+      component: layout1,
+      children: [
+        {
+          path: '/workb', component: workb, children: [
+            { path: '/form1', component: form1 },
+            { path: '/table2', component: table2 },
+            { path: '/datacharts', component: datacharts },
+          ]
+        },
+        { path: '/envir', component: envir },
+        { path: '/userm', component: userm }
       ]
     }
   ]
