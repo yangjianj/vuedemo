@@ -1,13 +1,13 @@
 <template>
   <div>
     <el-radio-group v-model="isCollapse" style="margin-bottom: 20px; display:block ">
-      <el-radio-button v-if="opennav==true" on-click="opennav=false">展开</el-radio-button>
-      <el-radio-button v-if="opennav==false" on-click="opennav=true">收起</el-radio-button>  <!--:label="true" -->
+      <div v-on:change="openmethd()"><el-radio-button :label="false" v-if="opennav" style="width:64px">展开</el-radio-button></div>
+      <div v-on:change="openmethd()"><el-radio-button :label="true" v-if="!opennav" style="width:64px">收起</el-radio-button> </div>
     </el-radio-group>
     <el-menu
       default-active="1-4-1"
       class="el-menu-vertical-demo"
-      @open="handleOpen"
+      @open="handleOpen"  
       @close="handleClose"
       :collapse="isCollapse"
     >
@@ -53,7 +53,7 @@
 
 <style>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
+  width: 160px;
   min-height: 400px;
 }
 </style>
@@ -70,9 +70,11 @@ export default {
   },
   methods: {
     handleOpen(key, keyPath) {
+      this.opennav=!this.opennav
       console.log(key, keyPath);
     },
     handleClose(key, keyPath) {
+      this.opennav=!this.opennav
       console.log(key, keyPath);
     },
     mm() {
@@ -82,6 +84,10 @@ export default {
     showtable(){
       this.$router.push("/table2");
       console.log("to 11");
+    },
+    openmethd(){
+      this.opennav = !this.opennav
+      console.log(this.opennav)
     }
   }
 };

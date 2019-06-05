@@ -1,7 +1,7 @@
 <template>
   <div id="workd" style="white-space:nowrap;text-align:left">
       <!--<div id="nav_left" style="float:left; background:#701;width:20%"> </div>-->
-      <div style="background : #00aa00; display:inline-block;vertical-align:top">
+      <div style="display:inline-block;vertical-align:top">
         <navleft></navleft>
       </div>
       <div id="content" style="background : #eeeeee ; display:inline-block;vertical-align:top">
