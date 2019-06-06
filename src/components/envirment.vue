@@ -1,10 +1,9 @@
 <template>
-  <div id="envirroot">
+  <div id="envirroot" style="text-align:center ;width:100%">
     <!--  表格  -->
     <el-table :data="showdatas" style="width: 100%">
       <el-table-column label="项目" width="180">
         <template slot-scope="scope">
-          <i class="el-icon-time"></i>
           <span style="margin-left: 10px">{{ scope.row.date }}</span>
         </template>
       </el-table-column>
@@ -315,7 +314,7 @@ export default {
 </script>
 <style>
 #envirroot{
-  margin-left: 10px;
+  margin-left: 3px;
 
 }
 </style>
