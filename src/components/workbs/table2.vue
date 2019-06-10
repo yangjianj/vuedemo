@@ -291,7 +291,7 @@ export default {
           username:'myname',
           password:'myinfo',
       });
-      this.$http({
+      this.$http({     //test ajax
         method:'post',
         url:'http://127.0.0.1:8090/ajax/',
         data:postdata
