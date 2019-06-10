@@ -115,6 +115,7 @@ export default {
         }
         */
        //Object.assign({},this.table1,response.data);
+       console.log(typeof(response.data));
        this.table1.data=Object.assign({}, response.data); 
        console.log(this.table1)
       })
