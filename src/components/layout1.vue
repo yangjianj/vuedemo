@@ -3,7 +3,7 @@
     <div id="top_bar">
       <navtop></navtop>
     </div>
-    <div id="content" style="width:100%;background : #eeeeee ; display:inline-block; vertical-align:top">
+    <div id="content" style="width:100%; height:100%;background : #eeeeee ; display:inline-block; vertical-align:top">
     <router-view></router-view>
     </div>
    </div>

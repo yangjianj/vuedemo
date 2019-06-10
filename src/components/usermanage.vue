@@ -1,7 +1,7 @@
 <template>
   <div id="usermanage" style="text-align:left ;width: 100%;padding-left:3px">
     <el-table
-      :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
+      :data="table1.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
       style="width: 100%"
     >
       <el-table-column label="Workid" prop="workid"></el-table-column>
@@ -29,6 +29,8 @@ export default {
   data() {
     const item = {};
     return {
+      mydata:{},
+      table1:{data:[]},
       tableData: [
         {
           date: "2016-05-02",
@@ -57,6 +59,10 @@ export default {
   methods: {
     handleEdit(index, row) {
       console.log(index, row);
+      let postdata=this.$qs.stringify({
+          username:'myname',
+          password:'myinfo',
+      });
       this.$http({
       method: "post",
       url: "http://127.0.0.1:8090/get_all_user/",
@@ -75,15 +81,42 @@ export default {
     }
   },
   mounted: function() {
-    var postdata = { name: "myname" };
+    let postdata=this.$qs.stringify({
+          username:'myname',
+          password:'myinfo',
+      });
     this.$http({
       method: "post",
-      url: "http://127.0.0.1:8090/ajax/",
+      url: "http://127.0.0.1:8090/get_all_user/",
       data: postdata
     })
-      .then(function(response) {
+      .then((response) => {
         console.log("rrrrrrrrrrrrrrrrrrrsponbse");
         console.log(response);
+        console.log(response.data);
+        //this.tableData = response.data;
+        /*
+        var tmpdata={
+          workid: "1",
+          name: "王小虎",
+          role: "admin",
+          project: "core",
+          telephone:"12345"
+        };
+
+        for(var i=0;i<response.data.length;i++){
+            //tmpdata.workid=response.data[i][2];
+            //tmpdata.name=response.data[i][1];
+            //tmpdata.role=response.data[i][3];
+            //tmpdata.project=response.data[i][4];
+            //tmpdata.telephone=response.data[i][5];
+            //this.tableData.push(tmpdata);
+            //console.log(i);
+        }
+        */
+       //Object.assign({},this.table1,response.data);
+       this.table1.data=Object.assign({}, response.data); 
+       console.log(this.table1)
       })
       .catch(function(error) {
         console.log(error);

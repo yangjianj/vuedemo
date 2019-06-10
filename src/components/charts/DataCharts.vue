@@ -1,7 +1,7 @@
 <template>
-  <div id="chart_root" >
-    <div id="chart1" style="width:650px;height:400px;display:inline-block;background:#aaaaaa"></div>
-    <div id="chart2" style="width:650px;height:400px;display:inline-block;background:#bbbbbb"></div>
+  <div id="chart_root" style="width:90%;height:90%" >
+    <div id="chart1" style="width:650px;height:45%;display:inline-block;background:#aaaaaa"></div>
+    <div id="chart2" style="width:650px;height:45%;display:inline-block;background:#bbbbbb"></div>
     <br>
     <div id="chart3" style="width:650px;height:400px;display:inline-block;background:#cccccc"></div>
     <div id="chart4" style="width:650px;height:400px;display:inline-block;background:#dddddd"></div>
