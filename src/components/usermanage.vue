@@ -13,7 +13,7 @@
 
         <el-table-column align="right">
           <template slot="header" slot-scope="scope">
-            <el-input v-model="search" size="small" placeholder="输入关键字搜索"/>
+            <el-input v-model="search" size="small" placeholder="search by name"/>
           </template>
           <template slot-scope="scope">
             <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">Edit</el-button>

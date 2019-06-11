@@ -4,19 +4,21 @@
       <div style="display:inline-block; vertical-align:top">
         <navleft></navleft>
       </div>
-      <div id="work_content" style="width:100%; height:100%; background : #eeeeee ; display:inline-block;vertical-align:top">
+      <div id="work_content" style="width:auto ;max-width:90%; background : #eeeeee ; display:inline-block;vertical-align:top">
         <router-view></router-view>
       </div>
   </div>
 </template>
 <style>
+
 </style>
 
 <script>
-import navleft from "@/components/leftnav";
+import navleft from "@/components/workbs/leftnav";
 
 export default {
   name: "workb",
+  work_content_width:'80%',
   components: {
     navleft
   },

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div style="">
     <!--  表格  -->
-    <el-table :data="showdatas" style="width: 100%">
+    <el-table :data="showdatas" >
       <el-table-column label="项目" width="180">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>

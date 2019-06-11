@@ -13,13 +13,11 @@
 
 <script>
 import navtop from "@/components/navtop";
-import navleft from "@/components/leftnav";
 
 export default {
   name: 'layout1',
   components: {
-    navtop,
-    navleft
+    navtop
   },
   data() {
     const item = {
