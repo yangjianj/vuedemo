@@ -126,7 +126,7 @@ export default {
       total: 1000,
       showdatas: [],
       default_page: 1,
-      pagesize: 10, //每页显示条数
+      pagesize: 15, //每页显示条数
       editForm: {
         //编辑页面数据
         name: "",

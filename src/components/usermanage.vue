@@ -31,7 +31,7 @@
       <el-pagination
         style="float:right"
         :page-size="pagesize"
-        :pager-count="11"
+        :pager-count="8"
         layout="prev, pager, next"
         :total="total"
         v-on:current-change="handlechange"
@@ -39,45 +39,31 @@
     </div>
     <div id="edit">
       <!--  edit form -->
-      <el-dialog :visible.sync="editdispaly">
-        <el-form ref="editform" :model="editForm" label-width="80px" size="mini">
-          <el-form-item label="活动名称">
-            <el-input v-model="editForm.name"></el-input>
+      <el-dialog :visible.sync="editdispaly" width="650px" height="600px">
+        <el-form ref="editform" :model="editForm" label-width="80px" size="mini" :inline="true">
+          <el-form-item label="Name" label-width="100px">
+            <el-input v-model="editForm.name" width="120px"></el-input>
           </el-form-item>
-          <el-form-item label="活动区域">
-            <el-select v-model="editForm.region" placeholder="请选择活动区域">
-              <el-option label="区域一" value="shanghai"></el-option>
-              <el-option label="区域二" value="beijing"></el-option>
-            </el-select>
+          <el-form-item label="Workid" label-width="100px">
+            <el-input v-model="editForm.workid" width="120px"></el-input>
           </el-form-item>
-          <el-form-item label="活动时间">
-            <el-col :span="11">
-              <el-date-picker
-                type="date"
-                placeholder="选择日期"
-                v-model="editForm.date1"
-                style="width: 100%;"
-              ></el-date-picker>
-            </el-col>
-            <el-col class="line" :span="2">-</el-col>
-            <el-col :span="11">
-              <el-time-picker placeholder="选择时间" v-model="editForm.date2" style="width: 100%;"></el-time-picker>
-            </el-col>
+          <br>
+          <el-form-item label="Project" label-width="100px">
+            <el-input v-model="editForm.project" width="120px"></el-input>
           </el-form-item>
-          <el-form-item label="活动性质">
-            <el-checkbox-group v-model="editForm.type">
-              <el-checkbox-button label="美食/餐厅线上活动" name="type"></el-checkbox-button>
-              <el-checkbox-button label="地推活动" name="type"></el-checkbox-button>
-              <el-checkbox-button label="线下主题活动" name="type"></el-checkbox-button>
-            </el-checkbox-group>
+          <el-form-item label="Telephone" label-width="100px">
+            <el-input v-model="editForm.telephone" width="120px"></el-input>
           </el-form-item>
-          <el-form-item label="特殊资源">
-            <el-radio-group v-model="editForm.resource" size="medium">
-              <el-radio border label="线上品牌商赞助"></el-radio>
-              <el-radio border label="线下场地免费"></el-radio>
+          <br>
+          <el-form-item label="Role" label-width="100px">
+            <el-radio-group v-model="editForm.role" size="medium">
+              <el-radio border label="admin"></el-radio>
+              <el-radio border label="guest"></el-radio>
+              <el-radio border label="other"></el-radio>
             </el-radio-group>
           </el-form-item>
-          <el-form-item size="large">
+          <br>
+          <el-form-item size="large" label="  " label-width="190px">
             <el-button type="primary" @click="clickSubmit()">保存</el-button>
             <el-button @click="close">取消</el-button>
           </el-form-item>
@@ -96,19 +82,18 @@ export default {
       mydata: {},
       all_user_data: [],
       curr_page_data: [],
-      pagesize: 10,
+      pagesize: 15,
       curr_page: 1,
       total: 100,
       editForm: {
         //编辑页面数据
         name: "",
-        region: "",
+        workid: "",
         date1: "",
         date2: "",
-        delivery: false,
-        type: [],
-        resource: "",
-        desc: ""
+        role: "",
+        project: "",
+        telephone: ""
       },
       editdispaly: false,
       tableData: [
@@ -144,18 +129,8 @@ export default {
         username: "myname",
         password: "myinfo"
       });
-      this.$http({
-        method: "post",
-        url: "http://127.0.0.1:8090/get_all_user/",
-        data: postdata
-      })
-        .then(function(response) {
-          console.log("rrrrrrrrrrrrrrrrrrrsponbse");
-          console.log(response);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
+      this.editForm = row;
+      this.editdispaly = true;
     },
     handleDelete(index, row) {
       console.log(index, row);
@@ -167,7 +142,7 @@ export default {
     },
     showdata(currpage) {
       //页面切换或加载时数据处理函数
-      this.curr_page= currpage;
+      this.curr_page = currpage;
       this.curr_page_data = this.all_user_data.slice(
         this.pagesize * (this.curr_page - 1),
         this.pagesize * (this.curr_page - 1) + this.pagesize
@@ -179,6 +154,22 @@ export default {
     },
     close() {
       this.editdispaly = false;
+    },
+    clickSubmit() {
+
+      let postdata=this.$qs.stringify(this.editForm);
+      this.$http({
+        method: "post",
+        url: "http://127.0.0.1:8090/update_user/",
+        data: postdata
+      })
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+        this.editdispaly=false;
     }
   },
   mounted: function() {
@@ -192,9 +183,7 @@ export default {
       data: postdata
     })
       .then(response => {
-        console.log(typeof response.data);
         this.all_user_data = eval("(" + response.data + ")");
-        console.log(this.all_user_data);
         this.showdata(this.curr_page);
         this.total = this.all_user_data.length;
       })
