@@ -12,6 +12,7 @@ import datacharts from '@/components/charts/DataCharts'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history', //去掉url中的#    //127.0.0.1:8080/table2
   routes: [
     {
       path: '/',
@@ -35,7 +36,7 @@ export default new Router({
         {
           path: '/workb', component: workb, children: [
             { path: '/form1', component: form1 },
-            { path: '/table2', component: table2 },
+            { path: '/table2', component: table2 },  //127.0.0.1:8080/table2
             { path: '/datacharts', component: datacharts },
           ]
         },
