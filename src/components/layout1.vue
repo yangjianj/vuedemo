@@ -1,5 +1,5 @@
 <template>
-  <div id="root1" style="text-align:left">
+  <div id="layout" style="text-align:left">
     <div id="top_bar">
       <navtop></navtop>
     </div>
