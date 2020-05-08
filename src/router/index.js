@@ -34,10 +34,11 @@ export default new Router({
       component: layout1,
       children: [
         {
-          path: '/workb', component: workb, children: [
-            { path: '/form1', component: form1 },
-            { path: '/table2', component: table2 },  //127.0.0.1:8080/table2
-            { path: '/datacharts', component: datacharts },
+          path: '/workb', component: workb, 
+          children: [
+              { path: '/form1', component: form1 },
+              { path: '/table2', component: table2 },  //127.0.0.1:8080/table2
+              { path: '/datacharts', component: datacharts },
           ]
         },
         { path: '/envir', component: envir },
